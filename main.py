@@ -37,12 +37,23 @@ def main():
 
     distanciaTotalInformada = input('Distância total ')
     distanciaTotal = int(distanciaTotalInformada)
+     
 
-    quantidadeCiclos = int(input('Informe a quantidade de ciclos'))
+    # Solicita a quantidade de ciclos ou valor padrão
+    quantidadeCiclosInformada = input('Informe a quantidade de ciclos ou digite 0 para o valor padrão: ')
+    
 
+   # Se a entrada for vazia, assume o valor padrão 10
+    if quantidadeCiclosInformada.strip() == '' or quantidadeCiclosInformada == '0':
+        quantidadeCiclos = 10
+    else:
+        quantidadeCiclos = int(quantidadeCiclosInformada)
+    
+      
     V_inicial = 360 / 1000  # Tempo por metro no primeiro ciclo (300s/1000m)
     razao = 1.04  # Razão da progressão geométrica para aumentar a velocidade
     exec(distanciaTotal, V_inicial, quantidadeCiclos, razao)
 
 if __name__ == "__main__":
     main()
+     
